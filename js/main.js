@@ -69,26 +69,22 @@ document.getElementById('curriculoForm').addEventListener('submit', async functi
             <title>Currículo Gerado</title>
             <meta charset="UTF-8">
             <link rel="stylesheet" href="../css/style.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
         </head>
         <body>
             <div style="display:flex;justify-content:center;align-items:center;min-height:100vh;flex-direction:column;">
                 ${json.curriculo}
-                <button class="btn-download" id="btnDownloadCurriculo">Download</button>
+                <button class="btn-download" id="btnDownloadCurriculo">Download PDF</button>
             </div>
             <script>
                 document.getElementById('btnDownloadCurriculo').onclick = function() {
-                    var curriculoHtml = document.querySelector('.curriculo-gerado').outerHTML;
-                    var blob = new Blob([
-                        '<html>\n<head>\n<meta charset="UTF-8">\n<title>Currículo</title>\n<link rel="stylesheet" href="../css/style.css">\n</head>\n<body>\n' + curriculoHtml + '\n</body>\n</html>'
-                    ], {type: 'text/html'});
-                    var url = URL.createObjectURL(blob);
-                    var a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'curriculo.html';
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    URL.revokeObjectURL(url);
+                    var element = document.querySelector('.curriculo-gerado');
+                    html2pdf().set({
+                        margin: 10,
+                        filename: 'curriculo.pdf',
+                        html2canvas: { scale: 2 },
+                        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                    }).from(element).save();
                 };
             <\/script>
         </body>
