@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerador de Currículo</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Gerador de Currículo</h1>
+    <form id="curriculoForm">
+        <div class="section">
+            <label>Nome Completo</label>
+            <input type="text" name="nome" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>Telefone</label>
+            <input type="text" name="telefone" required>
+            <label>Sobre mim</label>
+            <textarea name="resumo" rows="3" required></textarea>
+        </div>
+        <div class="section">
+            <h3>Experiências</h3>
+            <div id="experiencias" class="dynamic-list"></div>
+            <button type="button" onclick="addExperiencia()">Adicionar Experiência</button>
+        </div>
+        <div class="section">
+            <h3>Formação</h3>
+            <div id="formacoes" class="dynamic-list"></div>
+            <button type="button" onclick="addFormacao()">Adicionar Formação</button>
+        </div>
+        <button type="submit">Gerar Currículo</button>
+    </form>
+    <div id="resultado"></div>
+</div>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+.container { max-width: 800px; margin: 30px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px #ccc; }
+h1 { text-align: center; }
+label { display: block; margin-top: 15px; }
+input, textarea { width: 100%; padding: 8px; margin-top: 5px; border-radius: 4px; border: 1px solid #ccc; }
+.section { margin-bottom: 25px; }
+.dynamic-list { margin-bottom: 10px; }
+.dynamic-list-item { margin-bottom: 10px; border-left: 3px solid #eee; padding-left: 10px; }
+button { padding: 8px 16px; border: none; border-radius: 4px; background: #007bff; color: #fff; cursor: pointer; }
+button.remove { background: #dc3545; margin-left: 10px; }
+.curriculo-gerado {
+    background: #f9f9f9;
+    /* Tamanho exato de folha A4 */
+    width: 210mm;
+    min-height: 297mm;
+    max-width: 210mm;
+    max-height: 297mm;
+    padding: 20mm 15mm;
+    margin: 0 auto;
+    border-radius: 0;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px #00336622;
+    display: block;
+}
+html, body {
+    height: 100%;
+}
+@media print {
+    body, html {
+        background: #fff !important;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+    .curriculo-gerado {
+        margin: 0 auto !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        width: 210mm !important;
+        min-height: 297mm !important;
+        max-width: 210mm !important;
+        max-height: 297mm !important;
+        padding: 20mm 15mm !important;
+        page-break-after: avoid;
+    }
+}
+.btn-download { padding: 10px 20px; border: none; border-radius: 4px; background: #007bff; color: #fff; cursor: pointer; font-size: 1em; margin: 30px auto 0 auto; display: block; }
