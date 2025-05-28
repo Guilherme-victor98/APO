@@ -1,5 +1,5 @@
 <?php
-// Processa o formulário e retorna o currículo em HTML
+// Processa o formulário para retornar o currículo em HTML
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Content-Type: application/json');
     $data = json_decode(file_get_contents('php://input'), true);
